@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Program - Vydělávej na svých videích</title>
+    <meta name="description" content="Staň se součástí Creator Programu. Vytvoř videa o svém řemesle a dostávej 25 Kč za každých 1000 zhlédnutí. Výplata každou neděli. Max 8000 Kč na video.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0a0e27;
+            --accent: #ff6b35;
+            --accent-light: #ff8c5a;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --bg-light: #f8f9fa;
+            --success: #28a745;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #ffffff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a2744 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -250px;
+            right: -100px;
+            pointer-events: none;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,107,53,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -100px;
+            pointer-events: none;
+        }
+        
+        /* How It Works Section */
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            position: relative;
+        }
+        
+        .step-icon::before {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        /* CTA Button Hover */
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Earnings Card */
+        .earnings-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        /* Trust Badge Animation */
+        .trust-item:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Footer Links */
+        .footer-link:hover {
+            color: var(--accent);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero::before,
+            .hero::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero" style="padding: 80px 20px; text-align: center; position: relative; z-index: 1;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="display: inline-block; background: rgba(255,107,53,0.1); color: var(--accent); padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(255,107,53,0.3);">
+                💰 NOVÝ CREATOR PROGRAM
+            </div>
+            
+            <h1 style="color: var(--text-light); font-size: 56px; font-weight: 800; line-height: 1.2; margin-bottom: 24px; letter-spacing: -1px;">
+                Vydělávej na svých<br>
+                <span style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">řemeslných videích</span>
+            </h1>
+            
+            <p style="color: rgba(255,255,255,0.8); font-size: 20px; margin-bottom: 40px; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Natáčíš svařování, zámečničinu nebo práci v dílně? Začni vydělávat na každém videu. Žádné poplatky, žádné složitosti.
+            </p>
+            
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px;">
+                <a href="#prihlasit-se" class="btn-primary" style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 18px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255,107,53,0.3);">
+                    Začít vydělávat →
+                </a>
+                
+                <a href="#jak-to-funguje" class="btn-secondary" style="display: inline-block; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 18px; transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.2);">
+                    Jak to funguje
+                </a>
+            </div>
+            
+            <!-- Trust Indicators -->
+            <div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; opacity: 0.9;">
+                <div class="trust-item" style="transition: transform 0.3s ease;">
+                    <div style="color: var(--accent); font-size: 32px; font-weight: 800; margin-bottom: 4px;">25 Kč</div>
+                    <div style="color: rgba(255,255,255,0.7); font-size: 14px;">za 1000 views</div>
+                </div>
+                <div class="trust-item" style="transition: transform 0.3s ease;">
+                    <div style="color: var(--accent); font-size: 32px; font-weight: 800; margin-bottom: 4px;">8 000 Kč</div>
+                    <div style="color: rgba(255,255,255,0.7); font-size: 14px;">max na video</div>
+                </div>
+                <div class="trust-item" style="transition: transform 0.3s ease;">
+                    <div style="color: var(--accent); font-size: 32px; font-weight: 800; margin-bottom: 4px;">Každou neděli</div>
+                    <div style="color: rgba(255,255,255,0.7); font-size: 14px;">výplata peněz</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Earnings Calculator Section -->
+    <section style="padding: 80px 20px; background: var(--bg-light);">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 56px;">
+                <h2 style="font-size: 40px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px;">
+                    Kolik můžeš vydělat?
+                </h2>
+                <p style="color: #666; font-size: 18px; max-width: 600px; margin: 0 auto;">
+                    Každé video má potenciál. Čím zajímavější obsah, tím víc views, tím víc peněz.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                <!-- Card 1 -->
+                <div class="earnings-card" style="background: white; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+                    <div style="color: #999; font-size: 14px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Views</div>
+                    <div style="font-size: 36px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px;">10 000</div>
+                    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); margin: 0 auto 16px;"></div>
+                    <div style="color: var(--accent); font-size: 28px; font-weight: 700;">250 Kč</div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="earnings-card" style="background: white; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 2px solid var(--accent);">
+                    <div style="background: var(--accent); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 12px;">POPULÁRNÍ</div>
+                    <div style="color: #999; font-size: 14px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Views</div>
+                    <div style="font-size: 36px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px;">50 000</div>
+                    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); margin: 0 auto 16px;"></div>
+                    <div style="color: var(--accent); font-size: 28px; font-weight: 700;">1 250 Kč</div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="earnings-card" style="background: white; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+                    <div style="color: #999; font-size: 14px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Views</div>
+                    <div style="font-size: 36px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px;">100 000</div>
+                    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); margin: 0 auto 16px;"></div>
+                    <div style="color: var(--accent); font-size: 28px; font-weight: 700;">2 500 Kč</div>
+                </div>
+                
+                <!-- Card 4 - Max Cap -->
+                <div class="earnings-card" style="background: linear-gradient(135deg, var(--primary) 0%, #1a2744 100%); border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; grid-column: span 1;">
+                    <div style="background: var(--accent); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 12px;">MAX CAP</div>
+                    <div style="color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Views</div>
+                    <div style="font-size: 36px; font-weight: 800; color: white; margin-bottom: 16px;">320 000+</div>
+                    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); margin: 0 auto 16px;"></div>
+                    <div style="color: var(--accent); font-size: 32px; font-weight: 700;">8 000 Kč</div>
+                    <div style="color: rgba(255,255,255,0.6); font-size: 13px; margin-top: 12px;">Maximální výplata na jedno video</div>
+                </div>
+            </div>
+            
+            <div style="background: white; border-radius: 16px; padding: 24px; margin-top: 32px; border-left: 4px solid var(--accent);">
+                <p style="color: #666; font-size: 15px; line-height: 1.6;">
+                    <strong style="color: var(--text-dark);">💡 Důležité:</strong> Maximální odměna za jedno video je <strong style="color: var(--accent);">8 000 Kč</strong>. I když tvoje video dostane milion views, výplata bude maximálně 8 000 Kč. Ale můžeš posílat více videí!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="jak-to-funguje" style="padding: 80px 20px; background: white; scroll-margin-top: 20px;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 56px;">
+                <h2 style="font-size: 40px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px;">
+                    Jak to funguje
+                </h2>
+                <p style="color: #666; font-size: 18px; max-width: 600px; margin: 0 auto;">
+                    Tři jednoduché kroky k tvým prvním penězům. Žádné složitosti.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <!-- Step 1 -->
+                <div style="text-align: center;">
+                    <div class="step-icon">
+                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 800; color: var(--accent); z-index: 1;">1</div>
+                    </div>
+                    <h3 style="font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">
+                        Natočíš video
+                    </h3>
+                    <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                        Svaření, řemeslo, timelapse projektu. Natočíš na mobil, pošleš nám. Vertikální formát (Reels).
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div style="text-align: center;">
+                    <div class="step-icon">
+                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 800; color: var(--accent); z-index: 1;">2</div>
+                    </div>
+                    <h3 style="font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">
+                        My publikujeme
+                    </h3>
+                    <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                        Zkontrolujeme video a nahrajeme na náš Instagram účet. Ty už jen čekáš na views.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div style="text-align: center;">
+                    <div class="step-icon">
+                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 800; color: var(--accent); z-index: 1;">3</div>
+                    </div>
+                    <h3 style="font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">
+                        Dostaneš peníze
+                    </h3>
+                    <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                        Každou neděli večer dostaneš výplatu na Revolut nebo krypto. 25 Kč za každých 1000 views.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section style="padding: 80px 20px; background: var(--bg-light);">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2 style="font-size: 40px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px;">
+                    Co potřebuješ
+                </h2>
+            </div>
+            
+            <div style="display: grid; gap: 16px;">
+                <div style="background: white; padding: 24px 28px; border-radius: 12px; display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                    <div style="font-size: 28px; flex-shrink: 0;">📱</div>
+                    <div>
+                        <div style="font-weight: 700; color: var(--text-dark); margin-bottom: 4px; font-size: 17px;">Mobil s kamerou</div>
+                        <div style="color: #666; font-size: 15px;">Stačí běžný smartphone. Nic extra.</div>
+                    </div>
+                </div>
+                
+                <div style="background: white; padding: 24px 28px; border-radius: 12px; display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                    <div style="font-size: 28px; flex-shrink: 0;">🔥</div>
+                    <div>
+                        <div style="font-weight: 700; color: var(--text-dark); margin-bottom: 4px; font-size: 17px;">Řemeslná práce</div>
+                        <div style="color: #666; font-size: 15px;">Svařování, zámečnictví, konstrukce, opravy.</div>
+                    </div>
+                </div>
+                
+                <div style="background: white; padding: 24px 28px; border-radius: 12px; display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                    <div style="font-size: 28px; flex-shrink: 0;">💳</div>
+                    <div>
+                        <div style="font-weight: 700; color: var(--text-dark); margin-bottom: 4px; font-size: 17px;">Revolut nebo krypto peněženka</div>
+                        <div style="color: #666; font-size: 15px;">Pro výplatu peněz každou neděli.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px 24px; border-radius: 8px; margin-top: 32px;">
+                <p style="color: #856404; font-size: 15px; line-height: 1.6; margin: 0;">
+                    <strong>⚠️ Zakázáno:</strong> Boty, fake views, kradená videa. Při podvodu okamžitě končíš bez výplaty.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="prihlasit-se" style="padding: 80px 20px; background: linear-gradient(135deg, var(--primary) 0%, #1a2744 100%); text-align: center; scroll-margin-top: 20px;">
+        <div style="max-width: 700px; margin: 0 auto;">
+            <h2 style="color: white; font-size: 44px; font-weight: 800; margin-bottom: 20px; line-height: 1.2;">
+                Připravený začít vydělávat?
+            </h2>
+            
+            <p style="color: rgba(255,255,255,0.8); font-size: 18px; margin-bottom: 40px; line-height: 1.6;">
+                Vyplň jednoduchý formulář a staň se součástí Creator Programu. Během 24 hodin tě kontaktujeme.
+            </p>
+            
+            <a href="https://forms.google.com/TVUJ-FORM-ODKAZ" target="_blank" class="btn-primary" style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); color: white; padding: 20px 48px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 20px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(255,107,53,0.4);">
+                Vyplnit registrační formulář →
+            </a>
+            
+            <div style="margin-top: 32px; color: rgba(255,255,255,0.6); font-size: 14px;">
+                Žádné poplatky • Žádné závazky • Můžeš kdykoliv odejít
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="padding: 80px 20px; background: white;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2 style="font-size: 40px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px;">
+                    Časté otázky
+                </h2>
+            </div>
+            
+            <div style="display: grid; gap: 20px;">
+                <div style="background: var(--bg-light); padding: 28px; border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h3 style="font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">Kdy dostanu první výplatu?</h3>
+                    <p style="color: #666; font-size: 16px; line-height: 1.6; margin: 0;">
+                        Každou neděli večer ti vyplatíme peníze za všechna videa z předchozího týdne podle jejich aktuálních views.
+                    </p>
+                </div>
+                
+                <div style="background: var(--bg-light); padding: 28px; border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h3 style="font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">Můžu posílat více videí?</h3>
+                    <p style="color: #666; font-size: 16px; line-height: 1.6; margin: 0;">
+                        Ano! Každé video je samostatně odměňováno. Čím víc kvalitních videí, tím víc vydělků.
+                    </p>
+                </div>
+                
+                <div style="background: var(--bg-light); padding: 28px; border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h3 style="font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">Co když moje video odmítnete?</h3>
+                    <p style="color: #666; font-size: 16px; line-height: 1.6; margin: 0;">
+                        Máme právo video odmítnout bez udání důvodu (špatná kvalita, nevhodný obsah atd.). Jednoduše pošli jiné video.
+                    </p>
+                </div>
+                
+                <div style="background: var(--bg-light); padding: 28px; border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h3 style="font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">Kdo vlastní autorská práva k videu?</h3>
+                    <p style="color: #666; font-size: 16px; line-height: 1.6; margin: 0;">
+                        Odesláním videa převádíš všechna práva na nás. Video se stane naším obsahem a můžeme ho používat jak chceme.
+                    </p>
+                </div>
+                
+                <div style="background: var(--bg-light); padding: 28px; border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h3 style="font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">Musím platit daně z příjmů?</h3>
+                    <p style="color: #666; font-size: 16px; line-height: 1.6; margin: 0;">
+                        Za své daně odpovídáš sám. Nejsme tvůj zaměstnavatel. Detaily najdeš v Terms & Conditions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary); color: rgba(255,255,255,0.7); padding: 40px 20px; text-align: center;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div style="margin-bottom: 24px;">
+                <div style="font-size: 24px; font-weight: 800; color: white; margin-bottom: 8px;">Creator Program</div>
+                <div style="font-size: 14px;">Vydělávej na svých řemeslných videích</div>
+            </div>
+            
+            <div style="margin-bottom: 24px;">
+                <a href="https://docs.google.com/document/TVUJ-TC-ODKAZ" target="_blank" class="footer-link" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color 0.3s ease; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px;">
+                    📋 Terms & Conditions
+                </a>
+            </div>
+            
+            <div style="font-size: 13px; opacity: 0.6;">
+                © 2024 Creator Program. Všechna práva vyhrazena.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
