@@ -769,8 +769,9 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     };
     
     // Send to Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbz9rzCfgzI_-KkPOWTdclRkTfA64wS6bNZgPMYrnWaj4VPmyb7jHhE2K8HNELQtxPO7MQ/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxP0T1kKEzuo9-50xkxN42sCiNlkCwewyXQZDRwwsuTCnreXEBvmV6rSuCATk3vF55oqQ/exec', {
         method: 'POST',
+        mode: 'no-cors',  // ← VRAŤ ZPÁTKY!
         headers: {
             'Content-Type': 'application/json',
         },
