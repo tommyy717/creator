@@ -609,7 +609,7 @@ body {
     <div class="form-container">
         
         <div id="successMessage" class="success-message">
-            ✅ Registrace úspěšná! Ozveme se ti do 24 hodin na WhatsApp.
+            ✅ Registrace úspěšná! Ozveme se ti do 24 hodin na WhatsApp/Telegram.
         </div>
         
         <form id="registrationForm">
@@ -620,7 +620,7 @@ body {
             </div>
             
             <div class="form-group">
-                <label for="phone">Telefon (WhatsApp) *</label>
+                <label for="phone">Telefon (WhatsApp/Telegram) *</label>
                 <input type="tel" id="phone" name="phone" required placeholder="+420 123 456 789">
             </div>
             
@@ -644,8 +644,8 @@ body {
             </div>
             
             <div class="form-group">
-                <label for="payment">Platební údaje *</label>
-                <input type="text" id="payment" name="payment" required placeholder="Tel. číslo Revolut nebo Bankovní Účet">
+                <label for="payment">Platební údaje (Revolut nebo krypto) *</label>
+                <input type="text" id="payment" name="payment" required placeholder="Tel. číslo Revolut nebo crypto adresa">
                 <p style="font-size: 13px; color: #718096; margin-top: 6px;">
                     Pro Revolut: +420 xxx xxx xxx nebo @username<br>
                     Pro Bankovní Účet: 4282312063/0800 nebo CZ59 0800 0000 0042 9231 2033
@@ -769,7 +769,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     };
     
     // Send to Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbxuKDz0f7wdqJegjahc5A18kNG2kN-NvviNUyXsdF20J2qpV4IGt0ZhR0mfLnjelVuJDw/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzN9OALDYgPEI0qSAgkeS2FJhdHZR5njKDQ28vJ9SRUejTHdWVMPIdSs0IYOcT8l4PDlg/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
